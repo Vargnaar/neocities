@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>-[x] Varghalla [x]-</title>
+
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+    <center>
+     <img id="topbanner" src="">
+    </center>
+    
+    
+    <script type="text/javascript">
+      function changeRandomimage() {
+        var imageArray = ["img/topban.gif","img/topban2.png","img/topban3.gif","img/topban4.png","img/topban5.png","img/topban6.png","img/topban7.png","img/topban8.png","img/topban9.gif","img/topban10.png","img/topban11.png","img/topban12.png","img/topban13.gif","img/topban14.png","img/topban15.png","img/topban16.png","img/topban17.png","img/topban18.png"];
+        var randomImage = Math.floor(Math.random() * imageArray.length);
+        document.getElementById("topbanner").src = imageArray[randomImage];
+}
+changeRandomimage();
+    
+    
+    </script>
+  </body>
+</html>

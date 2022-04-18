@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <type="stylesheet" link="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+  <center>
+  <br>
+    <img id="switchme" src="#">
+
+  </center>
+  </body>
+</html>
+
+
+
+
+<script type="text/javascript">
+
+//
+
+function changeRandomimage() {
+    var imageArray = ["img/ban1.gif","img/ban2.gif","img/ban3.gif", "img/ban4.gif","img/ban5.gif","img/ban6.gif","img/ban7.gif","img/ban8.gif","img/ban9.jpg","img/ban10.gif","img/ban11.jpg","img/ban12.png","img/ban13.gif","img/ban14.gif"];
+    var randomImage = Math.floor(Math.random() * imageArray.length);
+    document.getElementById("switchme").src = imageArray[randomImage];
+}
+changeRandomimage();
+
+
+// Refresh advert banner every 30 seconds
+
+        setInterval(function(){
+        window.location.reload();
+        }, 30000);
+
+
+
+
+</script>

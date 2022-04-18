@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <meta name="twitter:site" content="@vargnaar">
+  <script type="text/javascript" src="//www.midijs.net/lib/midi.js"> </script>
+  <title>VaRgHaLLa</title>
+  <script>
+  
+  var space = " ";
+  var speed = "60";
+  var pos = 0;
+  var msg = "//..Varhalla..";
+  function Scroll(){
+    document.title = msg.substring(pos, msg.length) + space + msg.substring(0,pos);pos++;
+    if (pos > msg.length) pos = 0;window.setTimeout("Scroll()", speed);
+    }
+    
+    Scroll();
+    
+  </script>
+</head>
+</body>
+<center>
+<frameset rows="10%,70%,10%" frameBorder="0">
+  <frame name="A" src="header.html" frameBorder="0">
+    <frameset cols="15%,70%,10%" frameBorder="0">
+      <frame name="B" src="home.html" frameBorder="0">
+        <frame name="C" src="sidebar.html" frameBorder="0">
+          <frame name="D" src="rightbar.html" frameBorder="0">
+    </frameset>
+    <frame name="B" src="footer.html" frameBorder="0">
+      <frameset rows="100%" frameBorder="0">
+      </frameset>
+</frameset>
+</center>
+
+    <!--No clicky-->
+    <script>
+      if (document.addEventListener) {
+  document.addEventListener('contextmenu', function(e) {
+    alert("HAHAHHAAHA U SUK!"); 
+    e.preventDefault();
+  }, false);
+} else {
+  document.attachEvent('oncontextmenu', function() {
+    alert("You've tried to open context menu");
+    window.event.returnValue = false;
+  });
+}
+    </script>
+
+
+
+</body>
+</html>

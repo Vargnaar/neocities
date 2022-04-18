@@ -1,0 +1,42 @@
+body {
+  background-image: url("img/sbkg.gif");
+  background-repeat: repeat;
+  color: white;
+  font-family: "Comic Sans MS", "Comic Sans", Times, cursive;
+  font-size: medium;
+  cursor: crosshair;
+}
+
+a {
+  font-size: x-large;
+  font-family: 'Times New Roman', Times, serif;
+  color: red;
+}
+
+a:visited{
+  color: maroon;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.minis {
+  margin-top: 30px;
+}
+
+table {
+	text-align: center;
+}
+
+table td {
+	padding-left: 10px;
+	padding-top: 15px;
+}
