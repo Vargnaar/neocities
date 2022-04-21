@@ -10,26 +10,25 @@ concurrency: # prevent concurrent deploys doing strange things
   group: deploy-to-neocities
   cancel-in-progress: true
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v2
 
-    steps:
-    - uses: actions/checkout@v1
-    # Set up any tools and build steps here
-    # This example uses a Node.js toolchain to build a site
-    - name: Use Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: 12
-    - name: Install deps and build
-      run: |
-        npm i
-        npm run build
-    # When the dist_dir is ready, deploy it to neocities
-    - name: Deploy to neocities
-      uses: bcomnes/deploy-to-neocities@v1
-      with:
-        api_token: ${{ secrets.NEOCITIES_API_TOKEN }}
-        cleanup: false
-        dist_dir: public
+- run: make
+
+- if: ${{ success() && github.ref == 'refs/heads/main'}}
+
+  id: deploy
+  continue-on-error: true
+  uses: bcomnes/deploy-to-neocities@v1
+  with:
+    api_token: ${{ secrets.NEOCITIES_API_KEY }}
+    dist_dir: public
+    cleanup: true
+
+- name: Deploy to Neocities fallback
+  if: ${{ steps.deploy.outcome == 'failure' && github.ref == 'refs/heads/main' }}
+  uses: jonchang/deploy-neocities@main
+  with:
+    key: ${{ secrets.NEOCITIES_API_KEY }}
+    dir: public
+    clean: true
