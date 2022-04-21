@@ -1,39 +1,32 @@
 
-name: Deploy to neocities
 
-# only run on changes to master
-on:
-  push:
-    branches:
-      - main
+name: Build site
+
+on: push
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
-concurrency: # prevent concurrent deploys doing strange things
-  group: deploy-to-neocities
-  cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v2
 
+      - run: make
 
-steps:
-  - uses: actions/checkout@v2
+      - if: ${{ success() && github.ref == 'refs/heads/main' }}
+        id: deploy
+        continue-on-error: true
+        uses: bcomnes/deploy-to-neocities@v1
+        with:
+          api_token: ${{ secrets.NEOCITIES_API_KEY }}
+          dist_dir: public
+          cleanup: true
 
-  - run: make
+      - name: Deploy to Neocities fallback
+        if: ${{ steps.deploy.outcome == 'failure' && github.ref == 'refs/heads/main' }}
+        uses: jonchang/deploy-neocities@master
+        with:
+          key: ${{ secrets.NEOCITIES_API_KEY }}
+          dir: public
+          clean: true
 
-  - if: ${{ success() && github.ref == 'refs/heads/main'}}
-
-  id: deploy
-  continue-on-error: true
-  uses: bcomnes/deploy-to-neocities@v1
-  with:
-    api_token: ${{ secrets.NEOCITIES_API_KEY }}
-    dist_dir: public
-    cleanup: true
-
-- name: Deploy to Neocities fallback
-  if: ${{ steps.deploy.outcome == 'failure' && github.ref == 'refs/heads/main' }}
-  uses: jonchang/deploy-neocities@main
-  with:
-    key: ${{ secrets.NEOCITIES_API_KEY }}
-    dir: public
-    clean: true
