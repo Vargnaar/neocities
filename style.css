@@ -4,7 +4,7 @@ body {
   color: white;
   font-family: "Comic Sans MS", "Comic Sans", Times, cursive;
   font-size: medium;
-  cursor: crosshair;
+  cursor: url('img/cursor.cur'), auto;
 }
 
 a {
