@@ -1,3 +1,4 @@
+
 name: Deploy to neocities
 
 # only run on changes to master
@@ -10,6 +11,7 @@ concurrency: # prevent concurrent deploys doing strange things
   group: deploy-to-neocities
   cancel-in-progress: true
 
+jobs:
 steps:
 - uses: actions/checkout@v2
 
