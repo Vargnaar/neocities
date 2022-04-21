@@ -6,12 +6,15 @@ on:
   push:
     branches:
       - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
 concurrency: # prevent concurrent deploys doing strange things
   group: deploy-to-neocities
   cancel-in-progress: true
 
-jobs:
+
 steps:
 - uses: actions/checkout@v2
 
