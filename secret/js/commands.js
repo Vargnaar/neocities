@@ -8,7 +8,10 @@ var email = 'mailto:h8mail@varghalla.com';
 
 whois = [
   "<br>",
-  "Hey horsie, I haven't filled this in yet. I will tho. luv u.",
+  "Hello, I am Varg.",
+  "I make stickers, I hack things, I work for a big organisation in VM.",
+  "I cook things good. Really good. People often say 'that was nice'.",
+  "One day, I'd like to be a penetration tester just like Muiri.",
   "<br>"
 ];
 
