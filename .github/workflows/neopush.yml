@@ -1,0 +1,4 @@
+action "neocities-deploy" {
+  uses = "neocities/neocities-deploy@v1"
+  secrets = ["ce565dac7631413905c437a61cd31685"]
+}
