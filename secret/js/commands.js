@@ -11,9 +11,16 @@ whois = [
   "Hello, I am Varg.",
   "I make stickers, I hack things, I work for a big organisation in VM.",
   "I cook things good. Really good. People often say 'that was nice'.",
-  "One day, I'd like to be a penetration tester just like Muiri.",
+  "One day, I'd like to be a penetration tester just like Papa Waz.",
   "<br>"
 ];
+
+pwd =[
+  "<br>",
+  "/var/www/html/mainsite/secret",
+  "<br>"
+];
+
 
 whoami = [
   "<br>",
@@ -39,8 +46,8 @@ secret = [
 
 projects = [
   "<br>",
-  "Python Digimon tamagotchi",
-  "Small javascript weather app",
+  "CTFaaS",
+  "2lazy2.work",
   "Varghalla Shadowboxes",
   "Varghalla Leathercraft",
   "<br>"
