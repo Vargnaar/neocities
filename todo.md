@@ -12,3 +12,4 @@
 |✅| Test the webhook with Maddy |
 | | Get help from Horsie on dealing with github workflow |
 | | Replace current github action with one that works
+| | Set up old-school guestbook
