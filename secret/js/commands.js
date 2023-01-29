@@ -15,7 +15,7 @@ whois = [
   "<br>"
 ];
 
-pwd =[
+printwd =[
   "<br>",
   "/var/www/html/mainsite/secret",
   "<br>"
