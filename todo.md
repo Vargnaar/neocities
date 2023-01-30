@@ -13,3 +13,4 @@
 | | Get help from Horsie on dealing with github workflow |
 | | Replace current github action with one that works
 | | Set up old-school guestbook
+| | Add actual "listening to" from spotify api
