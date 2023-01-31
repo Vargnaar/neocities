@@ -1,8 +1,6 @@
-name: Neocities CD
+name: Build site
 
-on:
-  push:
-    branches: [ main ]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -11,19 +9,22 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Use Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: 16
-          
-      - name: Install deps & build site
-        run: |
-          npm i
-          npm run build
-      - name: Deploy to Neocities
+      - run: make
+
+      - if: ${{ success() && github.ref == 'refs/heads/main' }}
+        id: deploy
+        continue-on-error: true
         uses: bcomnes/deploy-to-neocities@v1
         with:
-          api_token: ${{ secrets.NEOCITIES_API_TOKEN }}
-          cleanup: true
+          api_token: ${{ secrets.NEOCITIES_API_KEY }}
           dist_dir: _site
-          protected_files: '*.png'
+          cleanup: true
+
+      - name: Deploy to Neocities fallback
+        if: ${{ steps.deploy.outcome == 'failure' && github.ref == 'refs/heads/main' }}
+        uses: jonchang/deploy-neocities@master
+        with:
+          key: ${{ secrets.NEOCITIES_API_KEY }}
+          dir: _site
+          clean: true
+
